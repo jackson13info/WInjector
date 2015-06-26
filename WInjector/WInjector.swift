@@ -32,7 +32,7 @@ class WInjector: NSObject {
     func objectForClass(classVal:AnyClass) -> AnyObject {
         let stringName = NSStringFromClass(classVal) as String;
         
-        if let object = objectCache[stringName] {
+        if let object = objectCache[stringName] as! AnyObject {
             return object;
         }
         

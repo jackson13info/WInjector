@@ -50,4 +50,27 @@ class WInjectorTests: XCTestCase {
         assert(WInject(Tester.self) is Tester);
     }
     
+    func testInvalidateObject() {
+        WInjector.defaultInjector.setObject(Tester(), aClass: Tester.self);
+        
+        assert(!(WInjector.defaultInjector.isCacheEmpty()));
+        
+        WInjector.defaultInjector.invalidateObject(Tester.self);
+        
+        assert((WInjector.defaultInjector.isCacheEmpty()));
+    }
+    
+    func testAllInvalidating() {
+        WInjector.defaultInjector.setObject(Tester(), aClass: Tester.self);
+        WInjector.defaultInjector.setObject(NSString(), aClass: NSString.self);
+        WInjector.defaultInjector.setObject(UILabel(), aClass: UILabel.self);
+        WInjector.defaultInjector.setObject(UITextField(), aClass: UITextField.self);
+        
+        assert(!(WInjector.defaultInjector.isCacheEmpty()));
+        
+        WInjector.defaultInjector.invalidateAllObjects();
+
+        assert((WInjector.defaultInjector.isCacheEmpty()));
+    }
+    
 }

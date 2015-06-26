@@ -24,7 +24,7 @@ class WInjector: NSObject {
     
     /* Basic init method. Use .defaultInjector */
     override init() {
-        objectCache = NSMutableDictionary();
+        self.objectCache = NSMutableDictionary();
         super.init();
     }
     
@@ -32,12 +32,12 @@ class WInjector: NSObject {
     func objectForClass(classVal:AnyClass) -> AnyObject {
         let stringName = NSStringFromClass(classVal) as String;
         
-        if let object = objectCache[stringName] {
+        if let object = self.objectCache[stringName] {
             return object;
         }
         
         let object = classVal as! NSObject.Type;
-        objectCache[stringName] = object;
+        self.objectCache[stringName] = object;
         return object;
         
     }
@@ -49,7 +49,7 @@ class WInjector: NSObject {
     /* Sets the object for the specified class. */
     func setObject(anObject:AnyObject, aClass:AnyClass) {
         let stringName = NSStringFromClass(aClass) as String;
-        objectCache[stringName] = anObject;
+        self.objectCache[stringName] = anObject;
     }
     
     func setObject(anObject:AnyObject, keyedSubscript:AnyObject) {
@@ -57,15 +57,18 @@ class WInjector: NSObject {
     }
     
     /* Remove the specified object in the cache */
-    func invalidateObject(anObject:WInjectorable) {
-        let stringName = NSStringFromClass(anObject.self as! AnyClass) as String;
-        objectCache.removeObjectForKey(stringName);
+    func invalidateObject(aClass:AnyClass) {
+        let stringName = NSStringFromClass(aClass) as String;
+        self.objectCache.removeObjectForKey(stringName);
     }
     
     /* Remove all of the objects in the cache */
     func invalidateAllObjects() {
-        objectCache.removeAllObjects();
+        self.objectCache.removeAllObjects();
     }
     
+    func isCacheEmpty() -> Bool {
+        return (self.objectCache.count == 0);
+    }
     
 }

@@ -7,12 +7,16 @@
 //
 
 import XCTest
+import WInjector
 
 class WInjectorTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        let tester = Tester();
+        tester.test = "First";
+        WInjector.defaultInjector.setObject(tester, aClass: Tester.self);
     }
     
     override func tearDown() {
@@ -20,16 +24,30 @@ class WInjectorTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testInjection() {
+        var tester = WInject(Tester.self) as! Tester;
+        
+        assert((tester.test == "First"));
+        
+        tester.test = "Second";
+        
+        self.measureBlock { () -> Void in
+            tester = WInject(Tester.self) as! Tester;
+        }
+        
+        assert((tester.test == "Second"));
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
+    func testSetting() {
+        WInjector.defaultInjector.setObject(Tester(), aClass: Tester.self);
+        WInjector.defaultInjector.setObject(NSString(), aClass: NSString.self);
+        WInjector.defaultInjector.setObject(UILabel(), aClass: UILabel.self);
+        WInjector.defaultInjector.setObject(UITextField(), aClass: UITextField.self);
+        
+        assert(WInject(UITextField.self) is UITextField);
+        assert(WInject(UILabel.self) is UILabel);
+        assert(WInject(NSString.self) is NSString);
+        assert(WInject(Tester.self) is Tester);
     }
     
 }

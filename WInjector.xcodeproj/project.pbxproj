@@ -15,6 +15,8 @@
 		D836D30D1B3CA13200DD2543 /* WInjectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836D30C1B3CA13200DD2543 /* WInjectorTests.swift */; };
 		D836D3181B3CA14C00DD2543 /* WInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836D3171B3CA14C00DD2543 /* WInjector.swift */; };
 		D836D31A1B3CAE8400DD2543 /* Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836D3191B3CAE8400DD2543 /* Tester.swift */; };
+		D836D35F1B3D977C00DD2543 /* Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836D3191B3CAE8400DD2543 /* Tester.swift */; };
+		D836D3601B3D977E00DD2543 /* WInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D836D3171B3CA14C00DD2543 /* WInjector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +215,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D836D3601B3D977E00DD2543 /* WInjector.swift in Sources */,
+				D836D35F1B3D977C00DD2543 /* Tester.swift in Sources */,
 				D836D30D1B3CA13200DD2543 /* WInjectorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,6 +399,7 @@
 				D836D3131B3CA13200DD2543 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D836D3141B3CA13200DD2543 /* Build configuration list for PBXNativeTarget "WInjectorTests" */ = {
 			isa = XCConfigurationList;
@@ -403,6 +408,7 @@
 				D836D3161B3CA13200DD2543 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

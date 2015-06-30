@@ -14,11 +14,11 @@ func WInject(classVal:AnyClass) -> AnyObject {
     return WInjector.defaultInjector.objectForClass(classVal);
 }
 
-class WInjector: NSObject {
+public class WInjector: NSObject {
 
     var objectCache:NSMutableDictionary! = nil;
     
-    static let defaultInjector = WInjector();
+    public static let defaultInjector = WInjector();
     
     /* Basic init method. Use .defaultInjector */
     override init() {
@@ -30,7 +30,7 @@ class WInjector: NSObject {
     func objectForClass(classVal:AnyClass) -> AnyObject {
         let stringName = NSStringFromClass(classVal) as String;
         
-        if let object = objectCache[stringName] as! AnyObject {
+        if let object = objectCache[stringName] {
             return object;
         }
         

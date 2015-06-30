@@ -27,3 +27,6 @@ let testObject = WInject(Tester.self);
 ```
 
 Now that you have injected the object, `testObject` will have everything the same as the first time you injected it. Values changed within it will be perserved throughout each injection. This way you can have global objects easily with only one line of code. 
+
+
+Podspec coming soon

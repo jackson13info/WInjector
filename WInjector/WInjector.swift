@@ -52,6 +52,10 @@ class WInjector: NSObject {
         self.objectCache[stringName] = anObject;
     }
     
+    func setObject(anObject:AnyObject, aString:String) {
+        self.objectCache[aString] = anObject;
+    }
+    
     func setObject(anObject:AnyObject, keyedSubscript:AnyObject) {
         setObject(anObject, aClass: keyedSubscript.self as! AnyClass);
     }

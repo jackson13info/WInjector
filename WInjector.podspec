@@ -10,4 +10,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/jackson13info/WInjector.git", :tag => "1.0" }
   s.source_files  = "WInjector/WInjector.swift"
   s.exclude_files = "Classes/Exclude"
+  s.osx.deployment_target = "10.9"
+  s.ios.deployment_target = "8.0"
 end

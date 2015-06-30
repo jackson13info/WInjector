@@ -6,8 +6,6 @@
 //  Copyright © 2015 WillowTreeApps. All rights reserved.
 //
 
-import UIKit
-
 protocol WInjectorable {
     
 }
